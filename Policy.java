@@ -163,9 +163,9 @@ public class Policy{
    */
 
    
-   public double calcBMI(double height, double weight){
+   public double calcBMI(){
       double BMI = 0;
-      BMI = (weight * 703)/(height * height);
+      BMI = (this.holderWeight * 703)/(this.holderHeight * this.holderHeight);
         return BMI;
    }
     /**
@@ -177,15 +177,15 @@ public class Policy{
 
 
    
-   public double calcPolicyPrice(int age, String smoker, double BMI){
+   public double calcPolicyPrice(double BMI){
       final double BASE_FEE = 600.00;
       double totalFee = 0.0; 
       totalFee += BASE_FEE;
       
-      if (age >  50 ){
+      if (this.holderAge >  50 ){
          totalFee += 75.00;
       }
-      if (smoker.toLowerCase().charAt(0) == 's'){
+      if (this.smokingStatus.toLowerCase().charAt(0) == 's'){
          totalFee += 100.00;
       }
       if (BMI > 35) {
