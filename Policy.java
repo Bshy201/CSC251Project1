@@ -1,4 +1,4 @@
-public class Policy{
+public class Policy {
    
    private int policyNumber;
    private String providerName;
