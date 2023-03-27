@@ -43,30 +43,11 @@ public class Policy{
     public void setProviderName(String providerName){
       this.providerName = providerName;
    }
-       /**
-   @param the age that represents the holder
-   @param the smoking status that represents the holder
-   @param the BMI that represents the holder
-   @return the policy fee that the holder would pay
-   */
-
-
    
-   public double calcPolicyPrice(double BMI){
-      final double BASE_FEE = 600.00;
-      double totalFee = 0.0; 
-      totalFee += BASE_FEE;
-      
-      if (this.holderAge >  50 ){
-         totalFee += 75.00;
-      }
-      if (this.smokingStatus.toLowerCase().charAt(0) == 's'){
-         totalFee += 100.00;
-      }
-      if (BMI > 35) {
-         totalFee += ((BMI - 35) * 20);
-      }
-      
-         return totalFee;
+   @Override       
+   public String toString(){
+      String str = "Policy Number: " + this.policyNumber;
+      String str2 = "\nProvider Name: " + this.providerName;
+      return str + str2;
    }
 }
