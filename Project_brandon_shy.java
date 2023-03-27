@@ -13,7 +13,8 @@ public class Project_brandon_shy{
       int policyNumber,
           holderAge,
           s = 0,
-          n = 0;
+          n = 0,
+          objectCount = 0;
           
       String holderFirstName,
              holderLastName,
@@ -25,7 +26,7 @@ public class Project_brandon_shy{
              holderBMI,
              totalPrice;
              
-      ArrayList<Policy> holders = new ArrayList<Policy>(); 
+      ArrayList<Policy> policies = new ArrayList<Policy>(); 
       
       while (keyboard.hasNext()) {
       
@@ -37,6 +38,13 @@ public class Project_brandon_shy{
       keyboard.nextLine();  
       holderAge = Integer.parseInt(keyboard.nextLine());
       smokingStatus = keyboard.nextLine();
+      if (smokingStatus.toLowerCase().charAt(0) == 's'){
+         s++;
+      }
+      else{
+         n++;
+      }
+
       holderHeight = keyboard.nextDouble();
       holderWeight = keyboard.nextDouble();
       
@@ -48,36 +56,27 @@ public class Project_brandon_shy{
          
 
       
-      Policy holder = new Policy(policyNumber, providerName, holderFirstName, holderLastName, holderAge, smokingStatus, holderHeight, holderWeight);
-      
-      holders.add(holder);
+      PolicyHolder holder = new PolicyHolder(holderFirstName, holderLastName, holderAge, smokingStatus, holderHeight, holderWeight);
+      Policy policy = new Policy(policyNumber, providerName, holder);
+      objectCount = policy.getInstancePolicy();
+      policies.add(policy);
       }
       
       keyboard.close();
       
-      /**
-      holderBMI = policyHolder1.calcBMI(holderHeight, holderWeight);
+           
+      for (int i = 0; i < policies.size(); i++) {
       
-      totalPrice = policyHolder1.calcPolicyPrice(holderAge, smokingStatus, holderBMI);
-       */  
+      policies.get(i).toString();
+      policies.get(i).getPolicyHolder().toString();
+       
       
-      for (int i = 0; i < holders.size(); i++) {
-         System.out.println();
-         System.out.println("Policy Number: " + holders.get(i).getPolicyNumber());
-         System.out.println("Provider Name: " + holders.get(i).getProviderName());
-         System.out.println("Policyholder's First Name: " + holders.get(i).getHolderFirstName());
-         System.out.println("Policyholder's Last Name: " + holders.get(i).getHolderLastName());
-         System.out.println("Policyholder's Age: " + holders.get(i).getHolderAge());
-         System.out.println("Policyholder's Smoking Status: " + holders.get(i).getSmokingStatus());
-         System.out.printf("Policyholder's Height: %.2f inches\n", holders.get(i).getHolderHeight());
-         System.out.printf("Policyholder's Weight: %.2f pounds\n", holders.get(i).getHolderWeight());
-         System.out.printf("Policyholder's BMI: %.2f\n", holders.get(i).calcBMI());
-         System.out.printf("Policy Price:  $%.2f", holders.get(i).calcPolicyPrice(holders.get(i).calcBMI() ));
-         
-              }
-      
-           }
-      
+                 }       
+         System.out.println("There were " + objectCount + " Policy objects created.");
+         System.out.println("The number of policies with a smoker is: " + s);
+         System.out.println("The number of policies with a non-smoker is: " + n);
+      }
+     
       catch(IOException ex)
       {
          System.out.println("Something went wrong reading the file: " + ex.getMessage());
