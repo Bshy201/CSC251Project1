@@ -1,16 +1,19 @@
 public class Policy{
    
+   private static int instancePolicy;
    private int policyNumber;
    private String providerName;
       
    public Policy(){
       policyNumber = 0;
       providerName = "";
+      instancePolicy++;
      }
         
    public Policy(int policyNumber, String providerName){
       this.policyNumber = policyNumber;
       this.providerName = providerName;
+      instancePolicy++;
         }
    
    /**
@@ -26,6 +29,10 @@ public class Policy{
 
     public String getProviderName(){
       return providerName;
+   }
+   
+   public int getInstancePolicy(){
+      return instancePolicy;
    }
       
     /**
