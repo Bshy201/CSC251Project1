@@ -1,6 +1,7 @@
 public class Policy{
    
    private static int instancePolicy;
+
    private PolicyHolder holder;
    private int policyNumber;
    private String providerName;
@@ -8,6 +9,14 @@ public class Policy{
    public Policy(){
       policyNumber = 0;
       providerName = "";
+
+      instancePolicy++;
+     }
+        
+   public Policy(int policyNumber, String providerName){
+      this.policyNumber = policyNumber;
+      this.providerName = providerName;
+
       holder = new PolicyHolder();
       instancePolicy++;
      }
@@ -34,6 +43,10 @@ public class Policy{
       return providerName;
    }
    
+
+   public int getInstancePolicy(){
+      return instancePolicy;
+   }
    public static int getInstancePolicy(){
       return instancePolicy;
    }
@@ -41,6 +54,7 @@ public class Policy{
    public PolicyHolder getPolicyHolder(){
       return new PolicyHolder(holder);
    }
+
       
     /**
    @param the policy number that represents the holder

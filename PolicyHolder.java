@@ -25,6 +25,7 @@ public class PolicyHolder {
       this.holderWeight = holderWeight;
    }
    
+
    public PolicyHolder(PolicyHolder object2){
       holderFirstName = object2.holderFirstName;
       holderLastName = object2.holderLastName;
@@ -34,6 +35,7 @@ public class PolicyHolder {
       holderWeight = object2.holderWeight;
    }
    
+
     /**
    @return the first name for the holder that the user entered
    */
@@ -168,9 +170,6 @@ public class PolicyHolder {
       
          return totalFee;
    }
-   
-   
-
 
    public String toString(){
    
