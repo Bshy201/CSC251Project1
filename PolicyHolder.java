@@ -8,7 +8,7 @@ public class PolicyHolder {
    private double holderWeight;
    
    public PolicyHolder(){
-      olderFirstName = "";
+      holderFirstName = "";
       holderLastName = "";
       holderAge = 0;
       smokingStatus = "";
