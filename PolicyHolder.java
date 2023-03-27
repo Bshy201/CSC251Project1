@@ -16,7 +16,7 @@ public class PolicyHolder {
       holderWeight = 0.0;
    }
    
-    public Policy(String holderFirstName, String holderLastName, int holderAge, String smokingStatus, double holderHeight, double holderWeight){
+    public PolicyHolder(String holderFirstName, String holderLastName, int holderAge, String smokingStatus, double holderHeight, double holderWeight){
       this.holderFirstName = holderFirstName;
       this.holderLastName = holderLastName;
       this.holderAge = holderAge;
